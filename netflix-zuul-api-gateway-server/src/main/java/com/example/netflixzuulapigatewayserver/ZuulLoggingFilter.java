@@ -24,6 +24,28 @@ public class ZuulLoggingFilter extends ZuulFilter{
 	public Object run() throws ZuulException {
 		HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
 		log.info("tgeee => {} req uri => {}", request, request.getRequestURI());
+		System.out.println("-----------------");
+//		System.out.println(request.getLocale().getCountry());
+//		System.out.println(request.getLocale().getDisplayCountry());
+//		System.out.println(request.getLocale().getDisplayLanguage());
+//		System.out.println(request.getLocale().getDisplayName());
+//		System.out.println(request.getLocale().getDisplayScript());
+//		System.out.println(request.getLocale().getDisplayVariant());
+//		System.out.println(request.getLocale().getISO3Language());
+//		System.out.println(request.getLocale().getISO3Country());
+//		System.out.println(request.getLocale().getLanguage());
+//		System.out.println(request.getLocale().getUnicodeLocaleAttributes().toString());
+//		System.out.println(request.getLocale().getUnicodeLocaleKeys().toString());
+//		System.out.println(request.getLocale().getDefault());
+//		System.out.println(request.getLocale().getISOCountries());
+//		System.out.println(request.getLocale().getISOLanguages());
+		
+		String header = request.getHeader("Authorization").replace("Bearer ", "");
+		System.out.println("token: " + header);
+		
+		System.out.println("-----------------");
+		
+		// TODO impl auth here
 		return null;
 	}
 
@@ -34,7 +56,7 @@ public class ZuulLoggingFilter extends ZuulFilter{
 
 	@Override
 	public int filterOrder() {
-		return 1;
+		return 2;
 	}
 
 }
